@@ -1,8 +1,8 @@
+#ifndef STRATEGY_P
+#define STRATEGY_P
 #include <iostream>
 #include <string>
 #include <vector>
-#ifndef STRATEGY_P
-#define STRATEGY_P
 
 //все виртуальные функции, которые в дальнейшем будут использоваться в других классах
 class IQuack {
