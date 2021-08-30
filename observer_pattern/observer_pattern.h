@@ -1,10 +1,12 @@
+#ifndef OBSERVER_P
+#define OBSERVER_P
+
 #include <iostream>
 #include <string>
 #include <algorithm>
 #include <vector>
 
-
-class IObject {
+class IObject { // интерфейс получателя
 public:
 	virtual ~IObject()
 	{
@@ -12,7 +14,8 @@ public:
 	}
 	virtual void update(std::string&) = 0;
 };
-class ISubject {
+
+class ISubject { // интерфейс отправителя 
 public:
 	virtual ~ISubject()
 	{
@@ -23,7 +26,7 @@ public:
 	virtual void Notify() = 0;
 };
 
-class Subject : public ISubject{
+class Subject : public ISubject{ // конкретный отправитель
 public:
 	~Subject()override
 	{
@@ -50,7 +53,8 @@ private:
 	std::string message;
 	std::vector<IObject*> obs;
 };
-class Object : public IObject{
+
+class Object : public IObject{ // конкретный получатель(их может быть много)
 public:
 	~Object()override
 	{
@@ -74,3 +78,4 @@ private:
 	std::string message_from_sub;
 	Subject* cur_sub;
 };
+#endif // OBSERVER_P
